@@ -44,8 +44,7 @@ RUN make install
 FROM alpine:3.9.4 as release
 
 # Run time tools
-RUN apk add --no-cache --virtual pcre \
-	update-ca-certificates
+RUN apk add --no-cache pcre curl libcurl openssl && update-ca-certificates
 
 # Copy from builder
 COPY --from=builder /etc/nginx /etc/nginx
