@@ -1,8 +1,8 @@
 # Build nginx
-FROM alpine:3.9.4 as builder
+FROM alpine:3.10.1 as builder
 
 # Nginx version
-ENV NGINX_VERSION=1.16.0
+ENV NGINX_VERSION=1.17.2
 
 # Build tools
 RUN apk add --no-cache --virtual .build-deps curl curl-dev libcurl tar gzip git ca-certificates \
