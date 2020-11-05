@@ -51,6 +51,9 @@ COPY --from=builder /etc/nginx /etc/nginx
 COPY --from=builder /usr/sbin/nginx /usr/sbin/nginx
 COPY --from=builder /var/log/nginx /var/log/nginx
 
+# Add configuration file
+ADD nginx.conf /etc/nginx/nginx.conf
+
 # forward request and error logs to docker log collector
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
 	&& ln -sf /dev/stderr /var/log/nginx/error.log
