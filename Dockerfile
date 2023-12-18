@@ -1,5 +1,5 @@
 # Build nginx
-FROM alpine:3.11.6 as builder
+FROM alpine:3.19.0 as builder
 
 # Nginx version
 ENV NGINX_VERSION=1.18.0
@@ -41,7 +41,7 @@ RUN make
 RUN make install
 
 # Nginx
-FROM alpine:3.11.6 as release
+FROM alpine:3.19.0 as release
 
 # Run time tools
 RUN apk add --no-cache pcre curl libcurl openssl && update-ca-certificates
