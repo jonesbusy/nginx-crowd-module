@@ -2,12 +2,12 @@
 FROM alpine:3.19.0 as builder
 
 # Nginx version
-ENV NGINX_VERSION=1.18.0
+ENV NGINX_VERSION=1.25.3
 
 # Build tools
 RUN apk add --no-cache --virtual .build-deps curl curl-dev libcurl tar gzip git ca-certificates \
     build-base openssh-client openssl openssl-dev perl-dev pcre pcre-dev libaio libaio-dev \
-    linux-headers gnupg autoconf zlib-dev python-dev wget && \
+    linux-headers gnupg autoconf zlib-dev python3-dev wget && \
 	update-ca-certificates
 
 # Build dir
